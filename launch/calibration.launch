@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="image_topic" default="/camera_0/image_rect"/>
+    <arg name="camera_info_topic" default="/camera_0/camera_info"/>
+    <arg name="pointcloud_topic" default="/lidar_0/lidar_node/pointcloud"/>
+
+    <node pkg="lidar_camera_calibration" type="calibrator.py" name="calibrator_node" output="screen">
+        <param name="image_topic" value="$(arg image_topic)"/>
+        <param name="camera_info_topic" value="$(arg camera_info_topic)"/>
+        <param name="pointcloud_topic" value="$(arg pointcloud_topic)"/>
+    </node>
+
+</launch>
